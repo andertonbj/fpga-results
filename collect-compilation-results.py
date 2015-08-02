@@ -25,35 +25,40 @@ def get_last_modified_time(path):
     return dt.strftime("%Y%m%d%H%M%S")
 
 def get_board_name(kernel_dir):
-    sys_desc_file = file(os.path.join(kernel_dir, "sys_description.txt"))
-    sys_desc = sys_desc_file.readline()
-    board = sys_desc.split()[1]
-    return board
-
-def get_aocl_version(kernel_dir):
-    version_file_path = "quartus_sh_compile.log"
-    version_file = file(os.path.join(kernel_dir, version_file_path))
-    reg_pattern = re.compile("Info: Version ([0-9\.]+) Build")
-    for line in version_file:
-        m = reg_pattern.search(line)
+    #sys_desc_file = file(os.path.join(kernel_dir, "sys_description.txt"))
+    #sys_desc = sys_desc_file.readline()
+    #board = sys_desc.split()[1]
+    board_spec_file = file(os.path.join(kernel_dir, "board_spec.xml"))
+    for line in board_spec_file:
+        m = re.search("<board (.* )?name=\"([^\"]+)\"", line)
         if m is None:
             continue
-        v = m.groups()[0]
-        break
-    else:
-        error("Version number not found")
-        sys.exit(1)
-    return v
-
-def get_kernel_version(kernel_aocx_path):
-    m = re.search("_(v[0-9]+(_.+)?)\.aocx$", kernel_aocx_path)
-    if m:
-        return m.groups()[0]
-    error("Getting kernel version failed: " + kernel_aocx_path)
+        return m.groups()[1]
+    error("Board name not detected")
     sys.exit(1)
 
-def get_kernel_dir_path(aocx_path):
-    return aocx_path[:-5]
+def get_aocl_version(kernel_dir):
+    version_file_path = os.path.join(kernel_dir, "quartus_sh_compile.log")
+    if os.path.exists(version_file_path):
+        version_file = file(os.path.join(kernel_dir, version_file_path))
+        reg_pattern = re.compile("Info: Version ([0-9\.]+) Build")
+        for line in version_file:
+            m = reg_pattern.search(line)
+            if m is None:
+                continue
+            v = m.groups()[0]
+            return v
+    warn("Version number not found")
+    sys.stdout.write("Type compiler version number: ")
+    v = sys.stdin.readline().strip()
+    return v
+
+def get_kernel_version(kernel_dir_path):
+    m = re.search("_(v[0-9]+(_.+)?)$", kernel_dir_path)
+    if m:
+        return m.groups()[0]
+    error("Getting kernel version failed: " + kernel_dir_path)
+    sys.exit(1)
 
 def mkdir(top, path_components):
     assert os.path.exists(top)
@@ -64,12 +69,11 @@ def mkdir(top, path_components):
             os.mkdir(top)
     return top
 
-def get_dest_path(repo_top_dir_path, sys_name, bench_name, aocx_path):
-    kernel_dir_path = get_kernel_dir_path(aocx_path)
-    ts = get_last_modified_time(aocx_path)
+def get_dest_path(repo_top_dir_path, sys_name, bench_name, kernel_dir_path):
+    ts = get_last_modified_time(kernel_dir_path)
     board = get_board_name(kernel_dir_path)
     aocl_version = get_aocl_version(kernel_dir_path)
-    kernel_version = get_kernel_version(aocx_path)
+    kernel_version = get_kernel_version(kernel_dir_path)
     
     p = mkdir(repo_top_dir_path, [sys_name, board, "aocl_" +
                                   aocl_version, bench_name,
@@ -99,21 +103,17 @@ def copy_kernel_files(kernel_dir_path, dest):
         
 def main():
     if len(sys.argv) != 5:
-        error("Usage: %s <kernel_aocx_path> <repo_top_dir_path> <sys_name> <benchmark_name>"
+        error("Usage: %s <kernel_dir_path> <repo_top_dir_path> <sys_name> <benchmark_name>"
               % sys.argv[0])
         sys.exit(1)
 
-    kernel_aocx_path = sys.argv[1]
+    kernel_dir_path = sys.argv[1]
     repo_top_dir_path = sys.argv[2]
     sys_name = sys.argv[3]
     benchmark_name = sys.argv[4]
-
-    assert kernel_aocx_path.endswith(".aocx")
     
-    kernel_dir_path = get_kernel_dir_path(kernel_aocx_path)
-
     dest = get_dest_path(repo_top_dir_path, sys_name, benchmark_name,
-                         kernel_aocx_path)
+                         kernel_dir_path)
 
     copy_kernel_files(kernel_dir_path, dest)
     
