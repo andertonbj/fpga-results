@@ -1,0 +1,32 @@
+rm -rf nw_kernel_v1
+aoc -c nw_kernel_v1.cl -g -v --report --board de5net_a7  -DALTERA_CL -DUSE_AOT -DFP_SINGLE
+aoc: Environment checks are completed successfully.
+aoc: Selected target board de5net_a7
+aoc: Running OpenCL parser....
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v1.cl:21:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+nw_kernel1(__global int* reference, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v1.cl:22:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+           __global int* input_itemsets,
+                         ^
+2 warnings generated.
+aoc: OpenCL parser completed successfully.
+aoc: Compiling....
+aoc: Linking with IP library ...
+
++--------------------------------------------------------------------+
+; Estimated Resource Usage Summary                                   ;
++----------------------------------------+---------------------------+
+; Resource                               + Usage                     ;
++----------------------------------------+---------------------------+
+; Logic utilization                      ;   20%                     ;
+; Dedicated logic registers              ;    9%                     ;
+; Memory blocks                          ;   18%                     ;
+; DSP blocks                             ;    1%                     ;
++----------------------------------------+---------------------------;
+aoc: First stage compilation completed successfully.
+aoc: To compile this project, run "aoc nw_kernel_v1.aoco"
+aoc nw_kernel_v1.aoco -g -v --report --board de5net_a7  -DALTERA_CL -DUSE_AOT -DFP_SINGLE
+aoc: Environment checks are completed successfully.
+aoc: Hardware generation completed successfully.
+rm nw_kernel_v1.aoco
