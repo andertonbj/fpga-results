@@ -82,7 +82,7 @@ def copy_kernel_files(kernel_dir_path, dest):
     for f in os.listdir(kernel_dir_path):
         fp = os.path.join(kernel_dir_path, f)
         relevant_suffixes = ["txt", "rpt", "log", "area", "xml",
-                             "csv", "summary"]
+                             "csv", "summary", "attrib"]
         if not any(fp.endswith("." + sfx) for sfx in relevant_suffixes):
             debug("Skipping a non-relevant file: " + fp)
             continue
