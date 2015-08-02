@@ -1,0 +1,89 @@
+MIF/HEX Update report for top
+Sun Aug  2 22:44:59 2015
+Quartus II 64-Bit Version 15.0.1 Build 150 06/03/2015 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Sun Aug  2 22:44:59 2015 ;
+; Revision Name         ; top                                   ;
+; Top-level Entity Name ; top                                   ;
+; Family                ; Stratix V                             ;
+; Device                ; 5SGXEA7N2F45C2                        ;
++-----------------------+---------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                   ;
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/pll_rom.hex                                                             ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/sys_description.hex                                                     ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_AC_ROM.hex        ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_inst_ROM.hex      ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_sequencer_mem.hex ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_AC_ROM.hex        ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_inst_ROM.hex      ;
+; /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_sequencer_mem.hex ;
++---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit MIF/HEX Update
+    Info: Version 15.0.1 Build 150 06/03/2015 SJ Full Version
+    Info: Processing started: Sun Aug  2 22:44:21 2015
+Info: Command: quartus_cdb top -c top --update_mif
+Info: Using INI file /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/quartus.ini
+Warning (39023): Can't find Memory Initialization File db/reconfig_map_0.mif -- skipped updates for this file
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (19) in the Memory Initialization File "/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/sys_description.hex" -- setting initial value for remaining addresses to 0
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/pll_rom.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/sys_description.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_AC_ROM.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_inst_ROM.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3a_s0_sequencer_mem.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_AC_ROM.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_inst_ROM.hex
+    Info (39025): Processed Memory Initialization File /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v7_32/system/synthesis/submodules/system_acl_iface_ddr3b_s0_sequencer_mem.hex
+Info: Quartus II 64-Bit MIF/HEX Update was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 2969 megabytes
+    Info: Processing ended: Sun Aug  2 22:45:00 2015
+    Info: Elapsed time: 00:00:39
+    Info: Total CPU time (on all processors): 00:00:39
+
+

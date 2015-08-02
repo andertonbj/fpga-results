@@ -1,0 +1,97 @@
+OpenCL Auto Migration Report
+
+To disable auto migration compile with flag: --no-auto-migrate
+
+Alternatively, you can enable/disable individual fixes
+by adding them to the include/exclude field in board_spec.xml.
+
+----------- Platform ---------
+| Board de5net_a7 with auto migration type auto and 
+| board_spec version 0.9 has the following properties:
+|   family = STRATIX V
+|   flow = qxp
+|   host = PCIe
+|   name = cvpqxp_13.x
+|   pgm = CvP
+|   version = 0.9
+------------------------------
+
+----------- Fixes To Apply ---------
+| pciemaximum
+| cvpenable
+------------------------------------
+
+-------- PCIe Maximum RX Credit Allocation (name: pciemaximum) ----------
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Shell
+    Info: Version 15.0.1 Build 150 06/03/2015 SJ Full Version
+    Info: Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus II License Agreement,
+    Info: the Altera MegaCore Function License Agreement, or other 
+    Info: applicable license agreement, including, without limitation, 
+    Info: that your use is for the sole purpose of programming logic 
+    Info: devices manufactured by Altera and sold by Altera or its 
+    Info: authorized distributors.  Please refer to the applicable 
+    Info: agreement for further details.
+    Info: Processing started: Sun Aug  2 15:39:58 2015
+Info: Command: quartus_sh -t /home/nmaruyama/altera/15.0.1/hld/ip/board/migrate/pciemaximum/pciemaximum.tcl
+Info: Using INI file /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v1/quartus.ini
+Info: Auto migration processing the following files: acl_iface_system.qsys system.qsys iface/acl_kernel_clk.qsys iface/acl_dma_core.qsys iface/acl_kernel_interface.qsys iface/acl_dma.qsys
+Info: Attempting to apply fix to acl_iface_system.qsys
+Info: Attempting to apply fix to system.qsys
+Info: Attempting to apply fix to iface/acl_kernel_clk.qsys
+Info: Attempting to apply fix to iface/acl_dma_core.qsys
+Info: Attempting to apply fix to iface/acl_kernel_interface.qsys
+Info: Attempting to apply fix to iface/acl_dma.qsys
+Info (23030): Evaluation of Tcl script /home/nmaruyama/altera/15.0.1/hld/ip/board/migrate/pciemaximum/pciemaximum.tcl was successful
+Info: Quartus II 64-Bit Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 329 megabytes
+    Info: Processing ended: Sun Aug  2 15:39:58 2015
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Successfully Implemented
+------------------------------
+
+-------- CvP Enable (name: cvpenable) ----------
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Shell
+    Info: Version 15.0.1 Build 150 06/03/2015 SJ Full Version
+    Info: Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus II License Agreement,
+    Info: the Altera MegaCore Function License Agreement, or other 
+    Info: applicable license agreement, including, without limitation, 
+    Info: that your use is for the sole purpose of programming logic 
+    Info: devices manufactured by Altera and sold by Altera or its 
+    Info: authorized distributors.  Please refer to the applicable 
+    Info: agreement for further details.
+    Info: Processing started: Sun Aug  2 15:40:00 2015
+Info: Command: quartus_sh -t /home/nmaruyama/altera/15.0.1/hld/ip/board/migrate/cvpenable/cvpenable.tcl
+Info: Using INI file /home/nmaruyama/projects/rodinia_3.0_fpga/opencl/nw/nw_kernel_v1/quartus.ini
+Info: Auto migration processing the following files: acl_iface_system.qsys system.qsys iface/acl_kernel_clk.qsys iface/acl_dma_core.qsys iface/acl_kernel_interface.qsys iface/acl_dma.qsys
+Info: Attempting to apply fix to acl_iface_system.qsys
+Info: Attempting to apply fix to system.qsys
+Info: Attempting to apply fix to iface/acl_kernel_clk.qsys
+Info: Attempting to apply fix to iface/acl_dma_core.qsys
+Info: Attempting to apply fix to iface/acl_kernel_interface.qsys
+Info: Attempting to apply fix to iface/acl_dma.qsys
+Info (23030): Evaluation of Tcl script /home/nmaruyama/altera/15.0.1/hld/ip/board/migrate/cvpenable/cvpenable.tcl was successful
+Info: Quartus II 64-Bit Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 327 megabytes
+    Info: Processing ended: Sun Aug  2 15:40:00 2015
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Successfully Implemented
+------------------------------
+
