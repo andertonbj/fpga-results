@@ -1,0 +1,11 @@
+rm -rf nw_kernel_v5_32
+aoc -c nw_kernel_v5_32.cl -g -v --report --board de5net_a7 -DBLOCK_SIZE=32 -DALTERA_CL -DUSE_AOT -DFP_SINGLE
+aoc: Environment checks are completed successfully.
+aoc: Selected target board de5net_a7
+aoc: Running OpenCL parser....
+aoc: OpenCL parser completed successfully.
+aoc: Compiling....
+Error: Optimizer FAILED.
+Refer to nw_kernel_v5_32/nw_kernel_v5_32.log for details.
+
+make: *** [nw_kernel_v5_32.aoco] Error 1
