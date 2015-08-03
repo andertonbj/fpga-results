@@ -11,8 +11,7 @@ import shutil
 import mimetypes
 import optparse
 
-execution_result_catalogue = {"nw": ["output_itemsets.txt",
-                                     "result.txt",
+execution_result_catalogue = {"nw": ["result.txt",
                                      "command_output.txt"]}
 
 def debug(s):
