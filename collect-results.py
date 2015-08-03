@@ -46,7 +46,7 @@ def get_board_name(kernel_dir):
 def get_aocl_version(kernel_dir):
     version_file_path = os.path.join(kernel_dir, "quartus_sh_compile.log")
     if os.path.exists(version_file_path):
-        version_file = file(os.path.join(kernel_dir, version_file_path))
+        version_file = file(version_file_path)
         reg_pattern = re.compile("Info: Version ([0-9\.]+) Build")
         for line in version_file:
             m = reg_pattern.search(line)
@@ -73,14 +73,16 @@ def mkdir(top, path_components):
             os.mkdir(top)
     return top
 
-def get_compile_dest_path(repo_top_dir_path, sys_name, bench_name,
+def get_compile_dest_path(repo_top_dir_path, bench_name,
                           kernel_dir_path, kernel_version,
                           aocl_version):
+    compile_top_path = "compile"
     ts = get_last_modified_time([kernel_dir_path])
     board = get_board_name(kernel_dir_path)
-    p = mkdir(repo_top_dir_path, [sys_name, board, "aocl_" +
-                                  aocl_version, bench_name,
-                                  kernel_version, ts, "compile"])
+    p = mkdir(repo_top_dir_path,
+              [compile_top_path, board, "aocl_" +
+               aocl_version, bench_name, kernel_version,
+               ts])
     return p
 
 def copy_kernel_files(kernel_dir_path, dest):
@@ -104,11 +106,11 @@ def copy_kernel_files(kernel_dir_path, dest):
         shutil.copyfile(fp, dest_fp)
     return
 
-def copy_compilation_results(repository, sys_name,
+def copy_compilation_results(repository,
                              bench_name, kernel_dir,
                              kernel_version, aocl_version):
-    dest = get_compile_dest_path(repository, sys_name,
-                                 benchmark_name,
+    dest = get_compile_dest_path(repository,
+                                 bench_name,
                                  kernel_dir, kernel_version,
                                  aocl_version)
 
@@ -130,14 +132,31 @@ def get_execution_result_files(args, benchmark_name):
 def get_execution_dest_path(repo_top_dir_path, sys_name, bench_name,
                             kernel_dir_path, kernel_version,
                             aocl_version, execution_result_files):
-    kernel_ts = get_last_modified_time(kernel_dir_path)
+    exec_top_path = "exec"
+    kernel_ts = get_last_modified_time([kernel_dir_path])
     exec_ts = get_last_modified_time(execution_result_files)
     board = get_board_name(kernel_dir_path)
-    p = mkdir(repo_top_dir_path, [sys_name, board, "aocl_" +
-                                  aocl_version, bench_name,
-                                  kernel_version, kernel_ts, "exec",
-                                  exec_ts])
+    p = mkdir(repo_top_dir_path,
+              [exec_top_path, board, sys_name,
+               "aocl_" + aocl_version, bench_name,
+               kernel_version, exec_ts])
     return p
+
+def create_pointer_to_compile(basedir, repository,
+                              bench_name, kernel_dir,
+                              kernel_version, aocl_version):
+    # python does not support symlink on Windows
+    link_name = "compile"
+    link_target = get_compile_dest_path(
+        repository, bench_name, kernel_dir,
+        kernel_version, aocl_version)
+    
+    p = os.path.join(basedir, link_name)
+    f = file(p, 'w')
+    f.write("%s\n" % link_target)
+    f.close()
+    return
+    
 
 def copy_execution_results(repository, sys_name,
                            bench_name, kernel_dir,
@@ -150,13 +169,18 @@ def copy_execution_results(repository, sys_name,
 
     print "Copy execution results to " + dest
     
-    for f in execution_result_files:
+    for fp in execution_result_files:
         debug("Copying %s to %s" % (fp, dest))
         dest_fp = os.path.join(dest, os.path.basename(fp))
         if os.path.exists(dest_fp):
             warn("Skipping %s since it already exists at: %s" % (fp, dest_fp))
             continue
         shutil.copyfile(fp, dest_fp)
+
+    print "Create a file containing the path to compile information directory"
+    create_pointer_to_compile(dest,  repository,
+                              bench_name, kernel_dir,
+                              kernel_version, aocl_version)
     return
         
 def main():
@@ -171,7 +195,7 @@ def main():
     parser.add_option("-r", "--repository", dest="repository",
                       help="repository path (REQUIRED)")
     parser.add_option("-s", "--system", dest="sys_name",
-                      help="system name (REQUIRED)")
+                      help="system name")
     parser.add_option("-b", "--benchmark", dest="benchmark_name",
                       help="benchmark name (REQUIRED)")
     parser.add_option("-v", "--kernel-version", dest="kernel_version",
@@ -180,15 +204,15 @@ def main():
                       help="AOCL version (OPTIONAL)")
     
     (options, args) = parser.parse_args()
-    if options.is_compile && len(args) != 0:
+    if options.is_compile and len(args) != 0:
         error("Incorrect number of arguments")
         parser.print_help()        
         sys.exit(1)
 
     if options.kernel_dir_path is None or \
        options.repository is None or \
-       options.sys_name is None or \
-       options.benchmark_name is None \
+       (not options.is_compile and options.sys_name is None) or \
+       options.benchmark_name is None or \
        options.is_compile is None:
         error("Missing required argument")
         parser.print_help()        
@@ -196,7 +220,7 @@ def main():
 
     kernel_version = options.kernel_version
     if kernel_version is None:
-        get_kernel_version(options.kernel_dir_path)
+        kernel_version = get_kernel_version(options.kernel_dir_path)
     # if not specified by the user nor detected automatically, use the
     # default name "default"
     if kernel_version is None:
@@ -204,12 +228,11 @@ def main():
 
     aocl_version = options.aocl_version
     if aocl_version is None:
-        get_aocl_version(options.kernel_dir_path)
+        aocl_version = get_aocl_version(options.kernel_dir_path)
     assert aocl_version is not None
 
     if options.is_compile:
         copy_compilation_results(options.repository,
-                                 options.sys_name,
                                  options.benchmark_name,
                                  options.kernel_dir_path,
                                  kernel_version,
@@ -221,7 +244,8 @@ def main():
                                options.benchmark_name,
                                options.kernel_dir_path,
                                kernel_version,
-                               aocl_version)
+                               aocl_version,
+                               execution_result_files)
         
     return
     
