@@ -9,6 +9,7 @@ import traceback
 import datetime
 import shutil
 import mimetypes
+import optparse
 
 def debug(s):
     sys.stderr.write("[DEBUG] %s\n" % s)
@@ -48,17 +49,15 @@ def get_aocl_version(kernel_dir):
                 continue
             v = m.groups()[0]
             return v
-    warn("Version number not found")
-    sys.stdout.write("Type compiler version number: ")
-    v = sys.stdin.readline().strip()
-    return v
+    warn("Compiler version number not found")
+    return None
 
 def get_kernel_version(kernel_dir_path):
     m = re.search("_(v[0-9]+(_.+)?)$", kernel_dir_path)
     if m:
         return m.groups()[0]
-    error("Getting kernel version failed: " + kernel_dir_path)
-    sys.exit(1)
+    warn("Kernel version unknown")
+    return None
 
 def mkdir(top, path_components):
     assert os.path.exists(top)
@@ -69,12 +68,11 @@ def mkdir(top, path_components):
             os.mkdir(top)
     return top
 
-def get_dest_path(repo_top_dir_path, sys_name, bench_name, kernel_dir_path):
+def get_dest_path(repo_top_dir_path, sys_name, bench_name,
+                  kernel_dir_path, kernel_version,
+                  aocl_version):
     ts = get_last_modified_time(kernel_dir_path)
     board = get_board_name(kernel_dir_path)
-    aocl_version = get_aocl_version(kernel_dir_path)
-    kernel_version = get_kernel_version(kernel_dir_path)
-    
     p = mkdir(repo_top_dir_path, [sys_name, board, "aocl_" +
                                   aocl_version, bench_name,
                                   kernel_version, "compile", ts])
@@ -102,20 +100,55 @@ def copy_kernel_files(kernel_dir_path, dest):
     return
         
 def main():
-    if len(sys.argv) != 5:
-        error("Usage: %s <kernel_dir_path> <repo_top_dir_path> <sys_name> <benchmark_name>"
-              % sys.argv[0])
+    usage = "usage: %prog [parameters]"
+    parser = optparse.OptionParser(usage)
+    parser.add_option("-k", "--kernel", dest="kernel_dir_path",
+                      help="kernel directory path (REQUIRED)")
+    parser.add_option("-r", "--repository", dest="repository",
+                      help="repository path (REQUIRED)")
+    parser.add_option("-s", "--system", dest="sys_name",
+                      help="system name (REQUIRED)")
+    parser.add_option("-b", "--benchmark", dest="benchmark_name",
+                      help="benchmark name (REQUIRED)")
+    parser.add_option("-v", "--kernel-version", dest="kernel_version",
+                      help="kernel version (OPTIONAL)")
+    parser.add_option("-a", "--aocl-version", dest="aocl_version",
+                      help="AOCL version (OPTIONAL)")
+    
+    (options, args) = parser.parse_args()
+    if len(args) != 0:
+        error("Incorrect number of arguments")
+        parser.print_help()        
         sys.exit(1)
 
-    kernel_dir_path = sys.argv[1]
-    repo_top_dir_path = sys.argv[2]
-    sys_name = sys.argv[3]
-    benchmark_name = sys.argv[4]
-    
-    dest = get_dest_path(repo_top_dir_path, sys_name, benchmark_name,
-                         kernel_dir_path)
+    if options.kernel_dir_path is None or \
+       options.repository is None or \
+       options.sys_name is None or \
+       options.benchmark_name is None:
+        error("Missing required argument")
+        parser.print_help()        
+        sys.exit(1)
 
-    copy_kernel_files(kernel_dir_path, dest)
+    kernel_version = options.kernel_version
+    if kernel_version is None:
+        get_kernel_version(options.kernel_dir_path)
+    # if not specified by the user nor detected automatically, use the
+    # default name "default"
+    if kernel_version is None:
+        kernel_version = "default"
+
+    aocl_version = options.aocl_version
+    if aocl_version is None:
+        get_aocl_version(options.kernel_dir_path)
+    assert aocl_version is not None
+    
+    dest = get_dest_path(options.repository, options.sys_name,
+                         options.benchmark_name,
+                         options.kernel_dir_path,
+                         kernel_version,
+                         aocl_version)
+
+    copy_kernel_files(options.kernel_dir_path, dest)
     
     return
     
