@@ -1,0 +1,950 @@
+<KERNEL_LIST>
+	<PROGRAM_GLOBAL_MEM_SIZE value="0" />
+	<KERNEL name="nw_kernel1" filename="nw_kernel_v4_simd_4.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="4" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="0" />
+			<LOCAL_MEM aspace="5" begin="0" next="522240" banks="16" width="32" static_demand="0" num_groups="1" has_atomics="0" ports="4" write_ports="4" rdw_mode="0" repl_fac="1" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="4" phys_mem_latency="4" ram_mode="1">
+				<BANK id="0">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="1">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="2">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="3">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="4">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="5">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="6">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="7">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="8">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="9">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="10">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="11">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="12">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="13">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="14">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="15">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+			</LOCAL_MEM>
+			<LOCAL_MEM aspace="6" begin="0" next="261120" banks="1" width="64" static_demand="0" num_groups="1" has_atomics="0" ports="16" write_ports="16" rdw_mode="0" repl_fac="4" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="4" phys_mem_latency="4" ram_mode="1">
+				<BANK id="0">
+					<PORT id="0" register="0" />
+					<PORT id="1" register="0" />
+					<PORT id="2" register="0" />
+					<PORT id="3" register="0" />
+					<PORT id="4" register="0" />
+					<PORT id="5" register="0" />
+					<PORT id="6" register="0" />
+					<PORT id="7" register="0" />
+					<PORT id="8" register="0" />
+					<PORT id="9" register="0" />
+					<PORT id="10" register="0" />
+					<PORT id="11" register="0" />
+					<PORT id="12" register="0" />
+					<PORT id="13" register="0" />
+					<PORT id="14" register="0" />
+					<PORT id="15" register="0" />
+				</BANK>
+			</LOCAL_MEM>
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="16" />
+			<REQUIRED_WORK_GROUP_SIZE x="16" y="1" z="1" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="256" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_mult.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/sv_mult27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_merge_node_priority_encoder_workgroup.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer_complex.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_barrier.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_barrier_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo_reorder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb2_ld_memcoalesce_reference_d_load_0_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="16384" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb3_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb3_ld__u13_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb3_ld__u14_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb3_ld__u15_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb3_ld_memcoalesce_input_itemsets_d_load_0_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb7_st_memcoalesce_input_itemsets_d_insertValue_0_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="16384" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="13" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st__u16_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st__u17_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="14" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st__u18_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="12" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st_memcoalesce_input_itemsets_d_extrValue_0_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="13" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st_memcoalesce_input_itemsets_d_extrValue_1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="14" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st_memcoalesce_input_itemsets_d_extrValue_2_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb3_st_memcoalesce_input_itemsets_d_extrValue_3_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="12" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u32_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u33_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u34_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u35_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u36_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u37_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u38_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u39_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u40_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u41_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u42_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u43_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_retval_0_i_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_retval_0_i_vectorizex4_1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_retval_0_i_vectorizex4_2_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_retval_0_i_vectorizex4_3_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u79_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u80_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u81_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u82_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u83_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u84_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u85_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u86_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u87_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u88_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u89_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u90_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_retval_0_i16_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_retval_0_i16_vectorizex4_1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_retval_0_i16_vectorizex4_2_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_retval_0_i16_vectorizex4_3_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="2" bank="3" />
+				<CONNECTION port="2" bank="4" />
+				<CONNECTION port="2" bank="5" />
+				<CONNECTION port="2" bank="6" />
+				<CONNECTION port="2" bank="7" />
+				<CONNECTION port="2" bank="8" />
+				<CONNECTION port="2" bank="9" />
+				<CONNECTION port="2" bank="10" />
+				<CONNECTION port="2" bank="11" />
+				<CONNECTION port="2" bank="12" />
+				<CONNECTION port="2" bank="13" />
+				<CONNECTION port="2" bank="14" />
+				<CONNECTION port="2" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u97_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="3" bank="3" />
+				<CONNECTION port="3" bank="4" />
+				<CONNECTION port="3" bank="5" />
+				<CONNECTION port="3" bank="6" />
+				<CONNECTION port="3" bank="7" />
+				<CONNECTION port="3" bank="8" />
+				<CONNECTION port="3" bank="9" />
+				<CONNECTION port="3" bank="10" />
+				<CONNECTION port="3" bank="11" />
+				<CONNECTION port="3" bank="12" />
+				<CONNECTION port="3" bank="13" />
+				<CONNECTION port="3" bank="14" />
+				<CONNECTION port="3" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u98_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="0" bank="3" />
+				<CONNECTION port="0" bank="4" />
+				<CONNECTION port="0" bank="5" />
+				<CONNECTION port="0" bank="6" />
+				<CONNECTION port="0" bank="7" />
+				<CONNECTION port="0" bank="8" />
+				<CONNECTION port="0" bank="9" />
+				<CONNECTION port="0" bank="10" />
+				<CONNECTION port="0" bank="11" />
+				<CONNECTION port="0" bank="12" />
+				<CONNECTION port="0" bank="13" />
+				<CONNECTION port="0" bank="14" />
+				<CONNECTION port="0" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u99_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="1" bank="3" />
+				<CONNECTION port="1" bank="4" />
+				<CONNECTION port="1" bank="5" />
+				<CONNECTION port="1" bank="6" />
+				<CONNECTION port="1" bank="7" />
+				<CONNECTION port="1" bank="8" />
+				<CONNECTION port="1" bank="9" />
+				<CONNECTION port="1" bank="10" />
+				<CONNECTION port="1" bank="11" />
+				<CONNECTION port="1" bank="12" />
+				<CONNECTION port="1" bank="13" />
+				<CONNECTION port="1" bank="14" />
+				<CONNECTION port="1" bank="15" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_st_memcoalesce_reference_l_insertValue_0_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="5" bank="0" />
+				<CONNECTION port="9" bank="0" />
+				<CONNECTION port="13" bank="0" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_st_memcoalesce_reference_l_insertValue_13_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="4" bank="0" />
+				<CONNECTION port="8" bank="0" />
+				<CONNECTION port="12" bank="0" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u29_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u30_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="11" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__u31_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="16384" buffer_location="" group_id="0" >
+				<CONNECTION port="14" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="6" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u76_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="7" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u77_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="15" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u78_inst0" type="master" width="64" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="1048576" buffer_location="" group_id="0" >
+				<CONNECTION port="10" bank="-1" />
+			</INTERFACE>
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="blk" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="reference_d" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="input_itemsets_d" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="input_itemsets_l" opencl_access_type="ACL_ARG_ADDR_LOCAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="4" aspace="5" lmem_size_bytes="2048" >
+		</ARGUMENT>
+			<ARGUMENT name="reference_l" opencl_access_type="ACL_ARG_ADDR_LOCAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="4" aspace="6" lmem_size_bytes="1024" >
+		</ARGUMENT>
+			<ARGUMENT name="cols" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="penalty" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="block_width" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="offset_r" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="offset_c" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="is_upper_left" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+</KERNEL_LIST>
