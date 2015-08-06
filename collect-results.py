@@ -12,7 +12,9 @@ import mimetypes
 import optparse
 
 execution_result_catalogue = {"nw": ["result.txt",
-                                     "command_output.txt"]}
+                                     "command_output.txt"],
+                                     "srad": ["command_output.txt"],
+                                     "nn": ["command_output.txt"]}
 
 def debug(s):
     sys.stderr.write("[DEBUG] %s\n" % s)
