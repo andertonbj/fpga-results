@@ -1,0 +1,26 @@
+Fitter Status : Successful - Thu Aug  6 11:16:33 2015
+Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Full Version
+Revision Name : top
+Top-level Entity Name : top
+Family : Stratix V
+Device : 5SGXEA7N2F45C2
+Timing Models : Final
+Logic utilization (in ALMs) : 77,915 / 234,720 ( 33 % )
+Total registers : 135273
+Total pins : 279 / 1,064 ( 26 % )
+Total virtual pins : 31
+Total block memory bits : 7,127,376 / 52,428,800 ( 14 % )
+Total RAM Blocks : 900 / 2,560 ( 35 % )
+Total DSP Blocks : 0 / 256 ( 0 % )
+Total HSSI STD RX PCSs : 9 / 48 ( 19 % )
+Total HSSI 10G RX PCSs : 0 / 48 ( 0 % )
+Total HSSI GEN3 RX PCSs : 0 / 48 ( 0 % )
+Total HSSI PMA RX Deserializers : 8 / 48 ( 17 % )
+Total HSSI STD TX PCSs : 9 / 48 ( 19 % )
+Total HSSI 10G TX PCSs : 0 / 48 ( 0 % )
+Total HSSI GEN3 TX PCSs : 0 / 48 ( 0 % )
+Total HSSI PMA TX Serializers : 9 / 48 ( 19 % )
+Total HSSI PIPE GEN1_2s : 9 / 48 ( 19 % )
+Total HSSI GEN3s : 9 / 48 ( 19 % )
+Total PLLs : 13 / 92 ( 14 % )
+Total DLLs : 2 / 4 ( 50 % )

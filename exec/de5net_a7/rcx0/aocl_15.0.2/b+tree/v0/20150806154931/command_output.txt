@@ -1,0 +1,75 @@
+Initialization
+Using verison 0
+
+Querying devices for info:
+================================================================================
+Platform number 0, device number 0 (device count: 1):
+
+CL_DEVICE_VENDOR                = Altera Corporation
+CL_DEVICE_NAME                  = de5net_a7 : Altera's Preferred Board
+CL_DEVICE_VERSION               = OpenCL 1.0 Altera SDK for OpenCL, Version 15.0.2
+CL_DEVICE_GLOBAL_MEM_SIZE       = 4096.000 MBytes
+CL_DEVICE_LOCAL_MEM_SIZE        = 16.000 KBytes
+CL_DEVICE_GLOBAL_MEM_CACHE_SIZE = 32.000 KBytes
+CL_DEVICE_TYPE                  = 8
+================================================================================
+
+================================================================================
+Selected platfrom number: 0
+Device count: 1
+Device type: 8
+Selected device: de5net_a7 : Altera's Preferred Board
+================================================================================
+
+kernel file path: './kernel/kernel_gpu_opencl_altera_v0.aocx'
+Reprogramming device with handle 1
+createProgram succeeded
+kernel file path: ./kernel/kernel_gpu_opencl_altera_v0.aocx
+Reprogramming device with handle 17
+createProgram succeeded
+WG size of kernel 1 = 256 WG size of kernel 2 = 256 
+Input File: ../../data/b+tree/mil.txt 
+Command File: ../../data/b+tree/command.txt 
+Command Buffer: 
+j 6000 3000
+k 10000
+
+
+Getting input from file file...
+Transforming data to a GPU suitable structure...
+Tree transformation took 0.625321
+Waiting for command
+> 
+******command: j count=6000, rSize=6000 
+knodes_elem=7874, knodes_unit_mem=2068, knodes_mem=16283432
+Device: de5net_a7 : Altera's Preferred Board
+-----OpenCL Compiler Output-----
+--------------------------------
+# of blocks = 6000, # of threads/block = 256 (ensure that device can handle)
+Time spent in different stages of GPU_CUDA KERNEL:
+ 2.042591581999 s, 98.462651874486 % : GPU: SET DEVICE / DRIVER INIT
+ 0.000016562999 s,  0.000798415530 % : GPU MEM: ALO
+ 0.009959693999 s,  0.480104731496 % : GPU MEM: COPY IN
+ 0.021327306000 s,  1.028077822600 % : GPU: KERNEL
+ 0.000123005001 s,  0.005929427435 % : GPU MEM: COPY OUT
+ 0.000465466999 s,  0.022437728378 % : GPU MEM: FRE
+Total time:
+2.074483616999 s
+> > > > > > > > > > > > 
+ ******command: k count=10000 
+records_elem=1000000, records_unit_mem=4, records_mem=4000000
+knodes_elem=7874, knodes_unit_mem=2068, knodes_mem=16283432
+Device: de5net_a7 : Altera's Preferred Board
+-----OpenCL Compiler Output-----
+--------------------------------
+# of blocks = 10000, # of threads/block = 256 (ensure that device can handle)
+Time spent in different stages of GPU_CUDA KERNEL:
+ 2.117278341000 s, 97.988996737116 % : GPU: SET DEVICE / DRIVER INIT
+ 0.000016231999 s,  0.000751227308 % : GPU MEM: ALO
+ 0.011538530001 s,  0.534010553397 % : GPU MEM: COPY IN
+ 0.031341664000 s,  1.450512269436 % : GPU: KERNEL
+ 0.000087656001 s,  0.004056775812 % : GPU MEM: COPY OUT
+ 0.000468283000 s,  0.021672436959 % : GPU MEM: FRE
+Total time:
+2.160730706000 s
+> > > > > > > > > > 
