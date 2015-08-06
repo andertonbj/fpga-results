@@ -1,0 +1,34 @@
+<optreport>
+	<loop>
+		<line>[1]:24</line>
+		<II>1</II>
+	</loop>
+	<loop>
+		<line>[1]:39</line>
+		<II>1</II>
+	</loop>
+	<loop>
+		<line>[1]:59</line>
+		<II>67</II>
+	</loop>
+	<loop>
+		<line>[1]:87</line>
+		<II>2</II>
+	</loop>
+	<loop>
+		<line>[1]:89</line>
+		<II>1</II>
+	</loop>
+	<loop>
+		<line>[1]:161</line>
+		<II>2</II>
+	</loop>
+	<loop>
+		<line>[1]:163</line>
+		<II>341</II>
+	</loop>
+	<loop>
+		<line>[1]:195</line>
+		<II>1</II>
+	</loop>
+</optreport>

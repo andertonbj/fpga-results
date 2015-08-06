@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<board name="de5net_a7" vfabric="0" big_endian="0">
+	 <global_mem_config name="" mode="burst-interleaved"/> 
+	<kernel name="extract_kernel" csr_addr="0" csr_size="128" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="2147483647"/>
+			<argument index="0" type="0" category="0" size="8" >
+			</argument>
+			<argument index="1" type="2" category="1" size="8" >
+			</argument>
+	</kernel>
+	<kernel name="prepare_kernel" csr_addr="256" csr_size="256" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="2147483647"/>
+			<argument index="0" type="0" category="0" size="8" >
+			</argument>
+			<argument index="1" type="2" category="1" size="8" >
+			</argument>
+			<argument index="2" type="2" category="1" size="8" >
+			</argument>
+			<argument index="3" type="2" category="1" size="8" >
+			</argument>
+	</kernel>
+	<kernel name="reduce_kernel" csr_addr="512" csr_size="256" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="256"/>
+			<argument index="0" type="0" category="0" size="8" >
+			</argument>
+			<argument index="1" type="0" category="0" size="8" >
+			</argument>
+			<argument index="2" type="0" category="0" size="4" >
+			</argument>
+			<argument index="3" type="2" category="1" size="8" >
+			</argument>
+			<argument index="4" type="2" category="1" size="8" >
+			</argument>
+			<argument index="5" type="0" category="0" size="4" >
+			</argument>
+		<local_memory id="5" local_demand="1024"/>
+		<local_memory id="6" local_demand="1024"/>
+	</kernel>
+	<kernel name="srad_kernel" csr_addr="768" csr_size="256" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="2147483647"/>
+			<argument index="0" type="0" category="0" size="4" >
+			</argument>
+			<argument index="1" type="0" category="0" size="4" >
+			</argument>
+			<argument index="2" type="0" category="0" size="4" >
+			</argument>
+			<argument index="3" type="0" category="0" size="8" >
+			</argument>
+			<argument index="4" type="2" category="1" size="8" >
+			</argument>
+			<argument index="5" type="2" category="1" size="8" >
+			</argument>
+			<argument index="6" type="2" category="1" size="8" >
+			</argument>
+			<argument index="7" type="2" category="1" size="8" >
+			</argument>
+			<argument index="8" type="2" category="1" size="8" >
+			</argument>
+			<argument index="9" type="2" category="1" size="8" >
+			</argument>
+			<argument index="10" type="2" category="1" size="8" >
+			</argument>
+			<argument index="11" type="2" category="1" size="8" >
+			</argument>
+			<argument index="12" type="0" category="0" size="4" >
+			</argument>
+			<argument index="13" type="2" category="1" size="8" >
+			</argument>
+			<argument index="14" type="2" category="1" size="8" >
+			</argument>
+	</kernel>
+	<kernel name="srad2_kernel" csr_addr="1024" csr_size="256" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="2147483647"/>
+			<argument index="0" type="0" category="0" size="4" >
+			</argument>
+			<argument index="1" type="0" category="0" size="4" >
+			</argument>
+			<argument index="2" type="0" category="0" size="4" >
+			</argument>
+			<argument index="3" type="0" category="0" size="8" >
+			</argument>
+			<argument index="4" type="2" category="1" size="8" >
+			</argument>
+			<argument index="5" type="2" category="1" size="8" >
+			</argument>
+			<argument index="6" type="2" category="1" size="8" >
+			</argument>
+			<argument index="7" type="2" category="1" size="8" >
+			</argument>
+			<argument index="8" type="2" category="1" size="8" >
+			</argument>
+			<argument index="9" type="2" category="1" size="8" >
+			</argument>
+			<argument index="10" type="2" category="1" size="8" >
+			</argument>
+			<argument index="11" type="2" category="1" size="8" >
+			</argument>
+			<argument index="12" type="2" category="1" size="8" >
+			</argument>
+			<argument index="13" type="2" category="1" size="8" >
+			</argument>
+	</kernel>
+	<kernel name="compress_kernel" csr_addr="1280" csr_size="128" work_group_invariant="0" vector_lanes="1" >
+		<work_group size_x="0" size_y="0" size_z="0" max_size="2147483647"/>
+			<argument index="0" type="0" category="0" size="8" >
+			</argument>
+			<argument index="1" type="2" category="1" size="8" >
+			</argument>
+	</kernel>
+</board>

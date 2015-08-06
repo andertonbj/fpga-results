@@ -1,0 +1,103 @@
+rm -rf kernel_gpu_opencl_v1
+aoc -c kernel_gpu_opencl_v1.cl -g -v --report --board de5net_a7  -DALTERA_CL -DUSE_AOT -DFP_SINGLE  -I..
+aoc: Environment checks are completed successfully.
+aoc: Selected target board de5net_a7
+aoc: Running OpenCL parser....
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:34:41: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+prepare_kernel( long d_Ne, __global fp* d_I,
+                                        ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:35:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_sums, __global fp* d_sums2){
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:35:51: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_sums, __global fp* d_sums2){
+                                                  ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:49:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_sums,                                                                            // pointer to partial sums variable (DEVICE GLOBAL MEMORY)
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:50:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_sums2) {
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:73:27: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global int* d_iN, 
+                          ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:74:27: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global int* d_iS, 
+                          ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:75:27: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global int* d_jE, 
+                          ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:76:27: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global int* d_jW, 
+                          ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:77:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_dN, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:78:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_dS, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:79:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_dE, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:80:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_dW, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:82:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_c, 
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:83:26: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+            __global fp* d_I){
+                         ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:148:31: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global int* d_iN, 
+                              ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:149:31: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global int* d_iS, 
+                              ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:150:31: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global int* d_jE, 
+                              ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:151:31: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global int* d_jW,
+                              ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:152:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_dN, 
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:153:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_dS, 
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:154:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_dE, 
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:155:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_dW, 
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:156:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_c, 
+                             ^
+/home/nmaruyama/projects/rodinia_3.0_fpga/opencl/srad/kernel/kernel_gpu_opencl_v1.cl:157:30: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                __global fp* d_I){
+                             ^
+25 warnings generated.
+aoc: OpenCL parser completed successfully.
+aoc: Compiling....
+aoc: Linking with IP library ...
+Warning: Unused kernel argument 'd_iN'
+Warning: Unused kernel argument 'd_jW'
+
++--------------------------------------------------------------------+
+; Estimated Resource Usage Summary                                   ;
++----------------------------------------+---------------------------+
+; Resource                               + Usage                     ;
++----------------------------------------+---------------------------+
+; Logic utilization                      ;   50%                     ;
+; Dedicated logic registers              ;   26%                     ;
+; Memory blocks                          ;   52%                     ;
+; DSP blocks                             ;   30%                     ;
++----------------------------------------+---------------------------;
+aoc: First stage compilation completed successfully.
+aoc: To compile this project, run "aoc kernel_gpu_opencl_v1.aoco"
+aoc kernel_gpu_opencl_v1.aoco -g -v --report --board de5net_a7  -DALTERA_CL -DUSE_AOT -DFP_SINGLE  -I..
+aoc: Environment checks are completed successfully.
+aoc: Hardware generation completed successfully.
+rm kernel_gpu_opencl_v1.aoco
