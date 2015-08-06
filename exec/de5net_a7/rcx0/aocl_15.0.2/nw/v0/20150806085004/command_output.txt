@@ -1,0 +1,35 @@
+Initialization
+Using verison 0
+Using kernel file: ./nw_kernel_v0.aocx
+
+Querying devices for info:
+================================================================================
+Platform number 0, device number 0 (device count: 1):
+
+CL_DEVICE_VENDOR                = Altera Corporation
+CL_DEVICE_NAME                  = de5net_a7 : Altera's Preferred Board
+CL_DEVICE_VERSION               = OpenCL 1.0 Altera SDK for OpenCL, Version 15.0.2
+CL_DEVICE_GLOBAL_MEM_SIZE       = 4096.000 MBytes
+CL_DEVICE_LOCAL_MEM_SIZE        = 16.000 KBytes
+CL_DEVICE_GLOBAL_MEM_CACHE_SIZE = 32.000 KBytes
+CL_DEVICE_TYPE                  = 8
+================================================================================
+
+================================================================================
+Selected platfrom number: 0
+Device count: 1
+Device type: 8
+Selected device: de5net_a7 : Altera's Preferred Board
+================================================================================
+
+Reprogramming device with handle 1
+BLOCK_SIZE: 16
+WG size of kernel = 16 
+worksize = 2048
+Processing upper-left matrix
+Processing lower-right matrix
+Computation done in 258.942 ms.
+==============================================================
+Output itemsets saved in output_itemsets.txt
+Traceback saved in result.txt
+==============================================================
