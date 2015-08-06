@@ -1,0 +1,38 @@
+./nn filelist.txt -r 5 -lat 30 -lng 90 v7
+Initialization
+Using verison 7
+
+Querying devices for info:
+================================================================================
+Platform number 0, device number 0 (device count: 1):
+
+CL_DEVICE_VENDOR                = Altera Corporation
+CL_DEVICE_NAME                  = de5net_a7 : Altera's Preferred Board
+CL_DEVICE_VERSION               = OpenCL 1.0 Altera SDK for OpenCL, Version 15.0.2
+CL_DEVICE_GLOBAL_MEM_SIZE       = 4096.000 MBytes
+CL_DEVICE_LOCAL_MEM_SIZE        = 16.000 KBytes
+CL_DEVICE_GLOBAL_MEM_CACHE_SIZE = 32.000 KBytes
+CL_DEVICE_TYPE                  = 8
+================================================================================
+
+================================================================================
+Selected platfrom number: 0
+Device count: 1
+Device type: 8
+Selected device: de5net_a7 : Altera's Preferred Board
+================================================================================
+
+Using kernel file: ./nn_kernel_v7.aocx
+Reprogramming device with handle 1
+Number of records: 42764
+Finding the 5 closest neighbors.
+** WARNING: [acl0] NOT using DMA to transfer 342112 bytes from host to device because of lack of alignment
+**                 host ptr (0x1fdc6d0) and/or dev offset (0x10000) is not aligned to 64 bytes
+# Records	Write(ms) [size]	Kernel(ms)	Read(s)  [size]		Total(ms)
+42764        	6.627805 [0.34MB]	0.215618	0.163630 [0.17MB]	7.007053
+
+1988 12 27  0 18 TONY       30.0  89.8  113   39 --> Distance=0.199997
+1980 10 22 18  3 ISAAC      30.1  90.4  110  778 --> Distance=0.412312
+1997 11 14 12 24 HELENE     30.5  89.8  134  529 --> Distance=0.538515
+2003  8 27 12 10 TONY       29.9  89.4  160  286 --> Distance=0.608275
+1974 12 22 18 24 JOYCE      30.6  89.9   80  593 --> Distance=0.608276
