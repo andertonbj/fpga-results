@@ -1,0 +1,747 @@
+<KERNEL_LIST>
+	<PROGRAM_GLOBAL_MEM_SIZE value="0" />
+	<KERNEL name="extract_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="0" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="128" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_div_s5.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_div_s5.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_exp_s5.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library_package.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fpc_library_cmd.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fpc_library_package_cmd.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/hcc_implementation.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/hcc_package_cmd.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/math_implementation.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/math_package_cmd.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_exp_s5.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c0_exe1_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_I" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	<KERNEL name="prepare_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="1" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="256" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_mult.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/sv_mult27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u0_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st__u13_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_I" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_sums" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_sums2" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	<KERNEL name="reduce_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="2" />
+			<LOCAL_MEM aspace="5" begin="0" next="2048" banks="4" width="32" static_demand="1024" num_groups="1" has_atomics="0" ports="4" write_ports="4" rdw_mode="0" repl_fac="1" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="4" phys_mem_latency="4" ram_mode="1">
+				<BANK id="0">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="1">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="2">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="3">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+			</LOCAL_MEM>
+			<LOCAL_MEM aspace="6" begin="0" next="2048" banks="4" width="32" static_demand="1024" num_groups="1" has_atomics="0" ports="4" write_ports="4" rdw_mode="0" repl_fac="1" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="4" phys_mem_latency="4" ram_mode="1">
+				<BANK id="0">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="1">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="2">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+				<BANK id="3">
+					<PORT id="0" register="1" />
+					<PORT id="1" register="1" />
+					<PORT id="2" register="1" />
+					<PORT id="3" register="1" />
+				</BANK>
+			</LOCAL_MEM>
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="2048" />
+			<MAX_WORK_GROUP_SIZE value="256" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="256" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_mult.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/sv_mult27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/thirtysix_six_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/six_three_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/ternary_add.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer_complex.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_embedded_workgroup_issuer_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_barrier.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_barrier_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo_reorder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u0_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb4_st__53_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb4_st__55_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb9_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="262144" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb9_ld__u171_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="262144" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_ld__u31_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_ld__u33_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_st_c1_exe1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__43_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_add179_lcssa_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u87_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="3" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u89_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="2" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_c1_exe119_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="0" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u143_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="2" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u145_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="1" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_st_c1_exe143_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="3" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb8_ld__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="256" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="0" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb1_st__u1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_ld__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_ld__u32_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb2_st_c2_exe1_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="4096" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_ld__47_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb4_st_add186_lcssa_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="1024" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="3" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_ld__u88_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="2" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb6_st_c2_exe127_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="2048" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="0" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="1" bank="1" />
+				<CONNECTION port="1" bank="2" />
+				<CONNECTION port="2" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_ld__u144_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="0" bank="1" />
+				<CONNECTION port="0" bank="2" />
+				<CONNECTION port="1" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb7_st_c2_exe151_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="262144" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="2" bank="1" />
+				<CONNECTION port="2" bank="2" />
+				<CONNECTION port="3" bank="3" />
+			</INTERFACE>
+			<INTERFACE port="local_bb8_ld_arrayidx183_promoted19_inst0" type="master" width="32" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="256" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="0" />
+				<CONNECTION port="3" bank="1" />
+				<CONNECTION port="3" bank="2" />
+				<CONNECTION port="0" bank="3" />
+			</INTERFACE>
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_no" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_mul" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_sums" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_sums2" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="gridDim" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	<KERNEL name="srad_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="3" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="256" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_add_ll.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_add_core.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_add_op.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_align.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_reduced_normalize.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_round_post.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_convert_to_internal.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_convert_to_ieee.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_mul_ll_s5.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_div32s.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_mult.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/sv_mult27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/thirtysix_six_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/six_three_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/ternary_add.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_div_s5.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_div_s5.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_fpext.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_ldexp_double_hc.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_clz.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_optimized_clz_27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_fptrunc.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_div_double_sv_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library_package.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid234_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid235_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid236_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid237_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid238_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC0_uid239_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC1_uid242_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC1_uid243_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC1_uid244_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC1_uid245_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC1_uid246_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC2_uid248_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC2_uid249_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC2_uid250_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC2_uid251_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC3_uid253_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC3_uid254_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC3_uid255_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC4_uid257_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_450_memoryC4_uid258_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid234_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid235_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid236_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid237_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid238_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC0_uid239_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC1_uid242_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC1_uid243_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC1_uid244_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC1_uid245_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC1_uid246_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC2_uid248_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC2_uid249_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC2_uid250_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC2_uid251_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC3_uid253_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC3_uid254_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC3_uid255_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC4_uid257_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_div_double_s5_memoryC4_uid258_invTab_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_cmp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u29_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u30_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u31_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u32_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u33_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u34_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u35_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u36_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe1_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe2_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe3_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe4_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe5_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_lambda" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Nr" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Nc" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_iN" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_iS" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_jE" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_jW" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dN" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dS" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dE" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dW" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_q0sqr" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_c" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_I" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	<KERNEL name="srad2_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="4" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="256" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_fpext.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_ldexp_double_hc.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_div32s.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_int_mult.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/sv_mult27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/thirtysix_six_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/six_three_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/ternary_add.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_mul_double.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library_package.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_mul_double_s5.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_custom_clz.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_optimized_clz_27.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_fptrunc.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u29_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u30_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u31_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u32_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u33_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u34_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u35_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u36_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_ld__u37_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c1_exe1_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_lambda" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Nr" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Nc" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" >
+		</ARGUMENT>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_iN" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_iS" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_jE" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_jW" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dN" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dS" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dE" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_dW" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_c" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_I" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	<KERNEL name="compress_kernel" filename="kernel_gpu_opencl_v0.v" version="1" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0">
+		<RESOURCE_INFO>
+			<ID value="5" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE value="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" width="64" size="128" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_fp_ln_s5.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library_package.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/dspba_library.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_ln_s5.vhd" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_ln_s5_memoryC0_uid97_natLogTabGen_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_ln_s5_memoryC1_uid98_natLogTabGen_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/fp_ln_s5_memoryC2_uid99_natLogTabGen_lutmem.hex" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/thirtysix_six_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/six_three_comp.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/ternary_add.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_stall_free_sink.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_limiter.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_accumulator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_item_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_shift_register.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_multistage_adder.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_id_iterator.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_kernel_finish_detector.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_work_group_dispatcher.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(ALTERAOCLSDKROOT)/ip/acl_debug_mem.v" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="local_bb1_ld__inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1024" buffer_location="" group_id="0" />
+			<INTERFACE port="local_bb1_st_c0_exe1_inst0" type="master" width="512" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="1024" buffer_location="" group_id="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="d_Ne" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="8" >
+		</ARGUMENT>
+			<ARGUMENT name="d_I" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+</KERNEL_LIST>

@@ -1,0 +1,16 @@
+KernelTotal: LEs = 23293  FFs = 49038  RAMs = 265  DSPs = 16
+LSU_resources: LEs = 10312  FFs = 26796  RAMs = 206  DSPs = 0
+FP_resources: LEs = 1121  FFs = 2373  RAMs = 0  DSPs = 4
+Local_mem_resources: LEs = 0  FFs = 0  RAMs = 0  DSPs = 0
+Local_mem_ram_resources: LEs = 0  FFs = 0  RAMs = 0  DSPs = 0
+Reg_State_resources: LEs = 6258  FFs = 14457  RAMs = 31  DSPs = 0
+RAM_State_resources: LEs = 250  FFs = 208  RAMs = 9  DSPs = 0
+MrgBr_State_resources: LEs = 128  FFs = 256  RAMs = 0  DSPs = 0
+Other_State_resources: LEs = 168  FFs = 458  RAMs = 0  DSPs = 0
+Other_resources: LEs = 5056  FFs = 4490  RAMs = 19  DSPs = 12
+------------
+LEs: 4.96187 %
+FFs: 5.22303 %
+RAMs: 10.3516 %
+DSPs: 6.25 %
+Util: 9.92323 %

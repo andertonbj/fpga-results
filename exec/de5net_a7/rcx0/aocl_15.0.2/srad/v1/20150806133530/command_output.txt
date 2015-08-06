@@ -1,0 +1,50 @@
+./srad 10 0.5 2048 2048 v1
+Initialization
+Using verison 1
+
+Querying devices for info:
+================================================================================
+Platform number 0, device number 0 (device count: 1):
+
+CL_DEVICE_VENDOR                = Altera Corporation
+CL_DEVICE_NAME                  = de5net_a7 : Altera's Preferred Board
+CL_DEVICE_VERSION               = OpenCL 1.0 Altera SDK for OpenCL, Version 15.0.2
+CL_DEVICE_GLOBAL_MEM_SIZE       = 4096.000 MBytes
+CL_DEVICE_LOCAL_MEM_SIZE        = 16.000 KBytes
+CL_DEVICE_GLOBAL_MEM_CACHE_SIZE = 32.000 KBytes
+CL_DEVICE_TYPE                  = 8
+================================================================================
+
+================================================================================
+Please choose CL_DEVICE_TYPE: ================================================================================
+
+================================================================================
+Selected platfrom number: 0
+Device count: 1
+Device type: 8
+Selected device: de5net_a7 : Altera's Preferred Board
+================================================================================
+
+kernel file path: ./kernel/kernel_gpu_opencl_v1.aocx
+Reprogramming device with handle 1
+WG size of kernel = 256 
+max # of workgroups = 16384, # of threads/workgroup = 256 (ensure that device can handle)
+
+==============================================================
+Iterations Progress: 0 
+==============================================================
+
+The file, ./output/image_out.pgm, was not created/opened for writing
+Time spent in different stages of the application:
+
+0.000008207 s, 0.0000 % : READ COMMAND LINE PARAMETERS
+0.040637367 s, 0.0213 % : READ AND RESIZE INPUT IMAGE FROM FILE
+0.000020901 s, 0.0000 % : SETUP
+3.604112922 s, 1.8869 % : KERNEL PREPARATION
+0.018187778 s, 0.0095 % : EXTRACT IMAGE
+187.329552821 s, 98.0728 % : COMPUTE
+0.018164763 s, 0.0095 % : COMPRESS IMAGE
+0.000012565 s, 0.0000 % : WRITE OUTPUT IMAGE TO FILE
+0.000193503 s, 0.0001 % : FREE MEMORY
+
+Total time: 191.010697324 s
