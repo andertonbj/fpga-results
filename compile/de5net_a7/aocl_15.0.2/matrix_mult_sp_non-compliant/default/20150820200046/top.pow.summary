@@ -1,0 +1,12 @@
+PowerPlay Power Analyzer Status : Successful - Thu Aug 20 20:00:36 2015
+Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Full Version
+Revision Name : top
+Top-level Entity Name : top
+Family : Stratix V
+Device : 5SGXEA7N2F45C2
+Power Models : Final
+Total Thermal Power Dissipation : 16061.08 mW
+Core Dynamic Thermal Power Dissipation : 9871.92 mW
+Core Static Thermal Power Dissipation : 2432.77 mW
+I/O Thermal Power Dissipation : 3756.39 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

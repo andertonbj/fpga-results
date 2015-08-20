@@ -1,0 +1,23 @@
+Analysis & Synthesis Status : Successful - Mon Aug  3 01:34:27 2015
+Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Full Version
+Revision Name : top
+Top-level Entity Name : top
+Family : Stratix V
+Logic utilization (in ALMs) : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total block memory bits : N/A until Partition Merge
+Total DSP Blocks : N/A until Partition Merge
+Total HSSI STD RX PCSs : N/A until Partition Merge
+Total HSSI 10G RX PCSs : N/A until Partition Merge
+Total HSSI GEN3 RX PCSs : N/A until Partition Merge
+Total HSSI PMA RX Deserializers : N/A until Partition Merge
+Total HSSI STD TX PCSs : N/A until Partition Merge
+Total HSSI 10G TX PCSs : N/A until Partition Merge
+Total HSSI GEN3 TX PCSs : N/A until Partition Merge
+Total HSSI PMA TX Serializers : N/A until Partition Merge
+Total HSSI PIPE GEN1_2s : N/A until Partition Merge
+Total HSSI GEN3s : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+Total DLLs : N/A until Partition Merge
