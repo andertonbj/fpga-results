@@ -1,0 +1,21 @@
+Matrix sizes:
+  A: 2048 x 1024
+  B: 1024 x 1024
+  C: 2048 x 1024
+Initializing OpenCL
+Platform: Altera SDK for OpenCL
+Using 1 device(s)
+  de5net_a7 : Altera's Preferred Board
+Using AOCX: matrix_mult.aocx
+Generating input matrices
+Launching for device 0 (global size: 1024, 2048)
+
+Time: 35.747 ms
+Kernel time (device 0): 35.670 ms
+
+Throughput: 120.15 GFLOPS
+
+Computing reference output
+Verifying
+Verification: FAIL
+Error (L^2-Norm): 5.78e-07
